@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <h1>Meine Reisewunschliste</h1>
+    <h2>...Hoffentlich geht das bald wieder!! :'(</h2>
+    <h3 class="mt-4">Aktuelle Liste:</h3>
+    <ul>
+        <% countryData.forEach(function(country) { %>
+          <li>
+            <strong><%= country.name %></strong>
+            <br />
+            Dort gewesen? <%= country.visited ? "Jaaaa!" : "Noch nicht :/" %>
+          </li>
+        <% }); %>
+      </ul>
+    <h3 class="mt-4">Wunschliste erweitern:</h3>
+    <form class="w-50" action="/api/countries" method="POST">
+        <div class="form-group">
+          <label for="countryName">Name des Landes</label>
+          <input type="text" class="form-control" id="countryName" aria-describedby="countryNameHelp" placeholder="Land" name="name">
+          <small id="countryNameHelp" class="form-text text-muted">Welches Land willst du bereisen?</small>
+        </div>
+        <div class="form-group">
+          <label for="countryISO2">ISO Alpha 2</label>
+          <input type="text" class="form-control" id="countryISO2" aria-describedby="countryISO2Help" placeholder="ISO Alpha 2 Code" name="alpha2Code">
+          <small id="countryISO2Help" class="form-text text-muted">Was ist der Alpha 2 ISO Code?</small>
+        </div>
+        <div class="form-group">
+            <label for="countryISO2">ISO Alpha 3</label>
+            <input type="text" class="form-control" id="countryISO3" aria-describedby="countryISO3Help" placeholder="ISO Alpha 3 Code" name="alpha3Code">
+            <small id="countryISO3Help" class="form-text text-muted">Was ist der Alpha 3 ISO Code?</small>
+          </div>
+        <button type="submit" class="btn btn-primary">Zur Liste hinzufügen</button>
+      </form>
+</div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
