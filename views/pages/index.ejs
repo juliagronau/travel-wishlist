@@ -14,13 +14,22 @@
     <h2>...Hoffentlich geht das bald wieder!! :'(</h2>
     <h3 class="mt-4">Aktuelle Liste:</h3>
     <ul>
-        <% countryData.forEach(function(country) { %>
+      <!-- Mit ES5 Function: -->
+        <!-- <% countryData.forEach(function(country) { %>
           <li>
             <strong><%= country.name %></strong>
             <br />
             Dort gewesen? <%= country.visited ? "Jaaaa!" : "Noch nicht :/" %>
           </li>
-        <% }); %>
+        <% }); %> -->
+        <!-- Mit ES6 Function -->
+        <% countryData.forEach(country => { %>
+          <li>
+            <strong><%= country.name %></strong>
+            <br />
+            Dort gewesen? <%= country.visited ? "Jaaaa!" : "Noch nicht :/" %>
+          </li>
+          <% }) %>
       </ul>
     <h3 class="mt-4">Wunschliste erweitern:</h3>
     <form class="w-50" action="/api/countries" method="POST">

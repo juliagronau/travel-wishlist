@@ -2,7 +2,7 @@ import countries from "../countries.js";
 
 export const getAllCountries = (req, res) => {
   try {
-    const { sort, visited } = req.query;
+    const { sort } = req.query;
     if (sort) {
       const sortedCountries = countries.sort((a, b) =>
         a.name.localeCompare(b.name)
